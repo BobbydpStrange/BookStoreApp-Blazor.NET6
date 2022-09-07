@@ -1,4 +1,5 @@
 using BookStoreApp.API.Data;
+using BookStoreApp.API.Properties.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -11,6 +12,9 @@ builder.Services.AddDbContext<BookStoreDbContext>(options => options.UseSqlServe
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddAutoMapper(typeof(MapperConfig));
+
 builder.Services.AddSwaggerGen();
 
 builder.Host.UseSerilog((ctx, lc) => 
